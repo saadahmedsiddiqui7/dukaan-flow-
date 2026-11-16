@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "jsx": "react-native", "moduleResolution": "bundler", "allowImportingTsExtensions": true },
+  "include": ["App.tsx", "src/**/*.ts", "src/**/*.tsx"]
+}

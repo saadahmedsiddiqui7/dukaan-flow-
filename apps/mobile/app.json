@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "DukaanFlow",
+    "slug": "dukaanflow",
+    "scheme": "dukaanflow",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": { "package": "com.dukaanflow.app" }
+  }
+}
