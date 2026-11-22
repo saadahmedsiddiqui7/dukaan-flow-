@@ -6,7 +6,7 @@ import BusinessHome from "./business-home";
 
 type Business = { id: string; name: string; default_currency: string; locale: string; time_zone: string };
 
-export default function ConnectedWorkspace({ supabase, onViewDemo }: { supabase: SupabaseClient; onViewDemo: () => void }) {
+export default function ConnectedWorkspace({ supabase, onViewDemo, signInPrompt = false }: { supabase: SupabaseClient; onViewDemo: () => void; signInPrompt?: boolean }) {
   const [user, setUser] = useState<User | null>(null);
   const [business, setBusiness] = useState<Business | null>(null);
   const [busy, setBusy] = useState(true);
@@ -76,6 +76,7 @@ export default function ConnectedWorkspace({ supabase, onViewDemo }: { supabase:
       <div className="eyebrow">YOUR INDIA-FIRST BUSINESS WORKSPACE</div>
       <h1>{mode === "signup" ? "Create your account" : "Welcome back"}</h1>
       <p className="connect-intro">Use your email to securely access DukaanFlow.</p>
+      {signInPrompt && <p className="connect-message" role="status">Create an account or sign in to add products and sales to your own workspace.</p>}
       <form className="connect-form" onSubmit={authenticate}>
         <label>Email address<input name="email" type="email" autoComplete="email" required placeholder="you@example.com" /></label>
         <label>Password<input name="password" type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} minLength={8} required placeholder="At least 8 characters" /></label>
@@ -84,7 +85,7 @@ export default function ConnectedWorkspace({ supabase, onViewDemo }: { supabase:
       <button className="connect-switch" onClick={() => { setMode(mode === "signup" ? "signin" : "signup"); setMessage(""); }}>{mode === "signup" ? "Already registered? Sign in" : "New to DukaanFlow? Create an account"}</button>
       <button className="connect-demo" onClick={onViewDemo}>Explore the interactive sample workspace</button>
     </> : busy ? <div className="connect-loading">Loading your workspace…</div> : business ? <>
-      <BusinessHome business={business} email={user.email ?? ""} onSignOut={signOut} />
+      <BusinessHome business={business} email={user.email ?? ""} supabase={supabase} onSignOut={signOut} />
     </> : <>
       <div className="eyebrow">BUSINESS SETUP</div><h1>Set up your workspace</h1><p className="connect-intro">Start with your business name. You can add more details later.</p>
       <form className="connect-form" onSubmit={createBusiness}>

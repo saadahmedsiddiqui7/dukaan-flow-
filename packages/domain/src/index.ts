@@ -25,6 +25,31 @@ export type BusinessContext = {
   enabledModules: readonly IndustryModuleKey[];
 };
 
+export type CatalogItem = {
+  id: string;
+  businessId: BusinessId;
+  type: "product" | "service";
+  name: string;
+  category: string;
+  sku: string | null;
+  stockQuantity: number | null;
+  unit: string;
+  unitPriceMinor: number;
+  currency: string;
+  active: boolean;
+};
+
+export type SaleRecord = {
+  id: string;
+  businessId: BusinessId;
+  customerName: string;
+  itemSummary: string;
+  totalMinor: number;
+  currency: string;
+  status: "paid" | "pending";
+  occurredAt: string;
+};
+
 /** An AI-proposed operation is not executed until the user confirms it. */
 export type ProposedBusinessAction<TPayload = unknown> = {
   id: string;

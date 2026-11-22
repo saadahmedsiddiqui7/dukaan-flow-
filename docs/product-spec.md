@@ -57,3 +57,7 @@ Voice and text should produce the same structured intent and use the same author
 ## Initial scope
 
 Build the repo foundation and shared contracts first. Then deliver a narrow end-to-end core workflow (for example a customer and a retail sale with payment) before expanding vertical coverage. Do not build all industry packs at once.
+
+## Portfolio MVP slice
+
+The first persisted web slice supports tenant setup, product/service catalog entries, and simple sales with paid/pending status. Guest visitors can browse fictional sample records and use a sample-only AI assistant; create actions return them to account setup. This demonstrates the universal tenancy and core-record pattern without claiming complete accounting, inventory valuation, customer management, or industry-specific compliance.

@@ -14,6 +14,8 @@ Expo / React Native (Android first)       Next.js web dashboard
 
 Both clients use the same Supabase project and business rules. The web and mobile interfaces may differ in navigation and interaction, but must not define separate business data models.
 
+The current portfolio implementation demonstrates the shared tenancy pattern with authenticated web CRUD for catalog items and simple sales. The Expo client remains a setup prototype; mobile authentication and those workflows are planned follow-on work rather than implied by the shared schema.
+
 ## Layers
 
 1. **Universal core:** stable IDs, tenant boundaries, common records and cross-industry workflows.

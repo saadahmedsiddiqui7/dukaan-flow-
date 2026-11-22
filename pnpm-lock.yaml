@@ -44,6 +44,9 @@ importers:
       '@dukaanflow/domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      '@supabase/supabase-js':
+        specifier: ^2.49.0
+        version: 2.119.0
       next:
         specifier: ^15.1.0
         version: 15.5.29(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
